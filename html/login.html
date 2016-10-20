@@ -1,0 +1,79 @@
+<html>
+<head>
+	<meta charset="utf-8">
+    <link href="../css/jquery-ui.css" rel="stylesheet">
+    <style type="text/css">
+        table {
+            border-collapse:collapse;
+        }
+        table, th, td {
+            border:1px solid black;
+        } 
+    </style>
+    <script src="../js/external/jquery/jquery.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script>
+    </script>
+</head>
+<body>
+<p><font color="red">{{.Warning}}</font></p>
+<form id="loginForm" action="login.go" method="post">
+    <label for="username">用户名:</label> <input id="username" name="username" value="{{.Username}}"></input>
+<label for="password">密&nbsp;码:</label> <input type="password" name="password" id="password"></input>
+<input type="submit" value="登&nbsp;陆" />
+</form>
+<h5>供测试使用的用户名、密码及角色</h5>
+<table>
+    <tr>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>角色</th>
+    </tr>
+    <tr>
+        <td>m_001</td>
+        <td>123</td>
+        <td>商家</td>
+    </tr>
+    <tr>
+        <td>u_001</td>
+        <td>123</td>
+        <td>用户</td>
+    </tr>
+    <tr>
+        <td>u_002</td>
+        <td>123</td>
+        <td>用户</td>
+    </tr>
+    <tr>
+        <td>u_003</td>
+        <td>123</td>
+        <td>用户</td>
+    </tr>
+    <tr>
+        <td>u_004</td>
+        <td>123</td>
+        <td>用户</td>
+    </tr>
+    <tr>
+        <td>u_005</td>
+        <td>123</td>
+        <td>用户</td>
+    </tr>
+    <tr>
+        <td>u_006</td>
+        <td>123</td>
+        <td>用户</td>
+    </tr>
+    <tr>
+        <td>u_007</td>
+        <td>123</td>
+        <td>用户</td>
+    </tr>
+    <tr>
+        <td>u_008</td>
+        <td>123</td>
+        <td>用户</td>
+    </tr>
+</table>
+</body>
+</html>

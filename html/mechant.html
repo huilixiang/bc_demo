@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+    table {
+        border-collapse:collapse;
+    }
+    table, th, td {
+        border:1px solid black;
+    }
+    .product {
+    
+    }
+</style>
+<script src="../js/external/jquery/jquery.js"></script>
+</head>
+
+<body>
+<div>
+    <p><h5 style="display:block">商家信息</h5></p>
+    <table>
+        <tr><td>商家:</td><td>{{.MechantName}}</td></tr>
+        <tr><td>积分:</td><td>{{.Balance}}</td></tr>
+        <tr><td><input type="button" value="充值" id="deposit"/></td><td><input type="button" value="提现" id="withdraw" /></td></tr> 
+    </table>
+    <table>
+        <tr><td>商品id</td><td>商品名称</td><td>价格</td><td>返利金额</td><td>返利策略</td></tr>
+        {{with .PList}}
+        {{range .}}
+        <tr><td>{{.PID}}</td><td>{{.PName}}</td><td>{{.PPrice}}</td><td>{{.PBack}}</td><td>{{.PStrategy}}</td></tr>  
+        {{end}}
+        {{end}}
+    </table>
+</div>
+<script>
+    $("input#deposit").click(function(){
+        alert("hello world")        
+    });
+</script>
+</body>
+</html>
