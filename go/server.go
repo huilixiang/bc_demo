@@ -11,8 +11,9 @@ import (
 	"strings"
 )
 
-var base_dir = "/home/vagrant/mxcc/html"
+var baseDir = "/home/vagrant/mxcc/html"
 var certMap map[string]string
+var chainID = "mxcc"
 var pList = make([]Product, 0, 3)
 
 type loginPage struct {
@@ -75,7 +76,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	if ok && v == password {
 		if strings.HasPrefix(username, "m") {
 			mt := &mechantPage{MechantName: username, Balance: "100", PList: pList}
-			t, err := template.ParseFiles(base_dir + "/mechant.html")
+			t, err := template.ParseFiles(baseDir + "/mechant.html")
 			if err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
@@ -91,7 +92,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	} else {
 		warning := "用户名或密码错误"
-		loginHtml := base_dir + "/login.html"
+		loginHtml := baseDir + "/login.html"
 		page := &loginPage{Title: "登陆页面", Username: username, Warning: warning}
 		t, err := template.ParseFiles(loginHtml)
 		if err != nil {
@@ -110,12 +111,12 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 
 func deposit(w http.ResponseWriter, r *http.Request) {
 	merchant := r.FormValue("")
+	fmt.Println(merchant)
 }
-
-func getBalance()
 
 func main() {
 	myInit()
+	InitChain(chainID)
 	http.HandleFunc("/login.go", loginHandler)
 	http.ListenAndServe(":8081", nil)
 }
